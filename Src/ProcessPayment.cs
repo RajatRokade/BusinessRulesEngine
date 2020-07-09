@@ -20,22 +20,20 @@ namespace BusinessRulesEngine
         /// <param name="payment"></param>
         public void Process(int transcationAmount, IPayment payment)
         {
-            if(payment.PaymentType == "PhysicalProduct")
+            switch(payment.PaymentType)
             {
-                ProcessPhysicalProduct(transcationAmount, payment);
+                case "PhysicalProduct": ProcessPhysicalProduct(transcationAmount, payment);
+                    break;
+                case "Book" : ProcessBookPayment(transcationAmount, payment);
+                    break;
+                case "Video": ProcessVideoPayment(transcationAmount, payment);
+                    break;
+                case "Membership": ProcessMembershipPayment(transcationAmount, payment);
+                    break;
+                case "":
+                    break;
             }
-            else if(payment.PaymentType == "Book")
-            {
-                ProcessBookPayment(transcationAmount, payment);
-            }
-            else if (payment.PaymentType == "Video")
-            {
-                ProcessVideoPayment(transcationAmount, payment);
-            }
-            else if (payment.PaymentType == "Membership")
-            {
-                ProcessMembershipPayment(transcationAmount, payment);
-            }
+            
         }
 
         /// <summary>
