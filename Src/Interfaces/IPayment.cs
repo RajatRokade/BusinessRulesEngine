@@ -9,6 +9,7 @@ namespace BusinessRulesEngine.Interfaces
     public interface IPayment
     {
         string PaymentType { get; set; }
+        int NumberOfRulesProcessed { get;}
         void RegisterPayment(int amount, List<IPaymentRules> rules);
         void ProcessPayment();
     }

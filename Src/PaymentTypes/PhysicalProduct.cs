@@ -11,6 +11,8 @@ namespace BusinessRulesEngine.PaymentTypes
     {
         public string PaymentType { get; set; }
 
+        public int NumberOfRulesProcessed { get; private set; } = 0;
+
         private List<IPaymentRules> rules = null; 
 
         public PhysicalProduct()
@@ -27,8 +29,9 @@ namespace BusinessRulesEngine.PaymentTypes
         {
             foreach (var rule in rules)
             {
+                NumberOfRulesProcessed++;
                 Console.WriteLine("Applying {0} payment rule", rule.RuleName);
-                rule.PerformAction();
+                rule.ApplyRules();
             }
         }
     }

@@ -10,7 +10,8 @@ namespace BusinessRulesEngine
 {
     public class ProcessPayment
     {
-        List<IPayment> payments = new List<IPayment>();
+        public List<IPayment> paymentslist = new List<IPayment>();
+
         public void Process(int transcationAmount, IPayment payment)
         {
             if(payment.PaymentType == "PhysicalProduct")
@@ -21,13 +22,13 @@ namespace BusinessRulesEngine
                     new CommisionPayment()
                 });
 
-                payments.Add(payment);
+                paymentslist.Add(payment);
             }
         }
 
         public void FinalizePayments()
         {
-            foreach (var payment in payments)
+            foreach (var payment in paymentslist)
             {
                 Console.WriteLine("Payment type is {0}", payment.PaymentType);
                 payment.ProcessPayment();

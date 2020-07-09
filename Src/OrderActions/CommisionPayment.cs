@@ -10,7 +10,7 @@ namespace BusinessRulesEngine.OrderActions
     {
         public string RuleName { get; private set; } = "Commision Payment";
 
-        public void PerformAction()
+        public void ApplyRules()
         {
             Console.WriteLine("Generating Commision Payment to Agent");
         }

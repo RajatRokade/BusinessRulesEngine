@@ -24,7 +24,7 @@ namespace BusinessRulesEngine.OrderActions
 
         public string RuleName { get; set; }
 
-        public void PerformAction()
+        public void ApplyRules()
         {
             Console.WriteLine("Generating Packing Slip for {0}",generationType.ToString());
         }

@@ -9,6 +9,6 @@ namespace BusinessRulesEngine
     public interface IPaymentRules
     {
         string RuleName { get; }
-        void PerformAction();
+        void ApplyRules();
     }
 }
