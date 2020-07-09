@@ -11,27 +11,12 @@ namespace BusinessRulesEngine
 {
     class Program
     {
+        static ProcessPayment payment = new ProcessPayment();
         static void Main(string[] args)
         {
-            List<IPayment> payments = new List<IPayment>();
+            payment.Process(100,new PhysicalProduct());
 
-            var physicalProductPayment = new PhysicalProduct();
-            // Registering Payment with 2 rules
-            physicalProductPayment.RegisterPayment(100, new List<IPaymentRules>()
-            {
-                new GeneratePackingSlip(EDepratment.SHIPPING),
-                new CommisionPayment()
-            }) ;
-
-            payments.Add(physicalProductPayment);
-
-            //Execute All Payments 
-
-            foreach(var payment in payments)
-            {
-                Console.WriteLine("Payment type is {0}",payment.PaymentType);
-                payment.ProcessPayment();
-            }
+            payment.FinalizePayments();
 
             Console.ReadLine();
         }

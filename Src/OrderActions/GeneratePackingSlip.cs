@@ -15,7 +15,6 @@ namespace BusinessRulesEngine.OrderActions
 
     public class GeneratePackingSlip : IPaymentRules
     {
-        
         private EDepratment generationType = EDepratment.UNKNOWN;
         public GeneratePackingSlip(EDepratment type)
         {

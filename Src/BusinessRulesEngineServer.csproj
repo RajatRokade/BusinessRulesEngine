@@ -48,6 +48,7 @@
     <Compile Include="OrderActions\CommisionPayment.cs" />
     <Compile Include="OrderActions\GeneratePackingSlip.cs" />
     <Compile Include="PaymentTypes\PhysicalProduct.cs" />
+    <Compile Include="ProcessPayment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
