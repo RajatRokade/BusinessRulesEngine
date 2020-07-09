@@ -24,6 +24,16 @@ namespace BusinessRulesEngine
 
                 paymentslist.Add(payment);
             }
+            else if(payment.PaymentType == "Book")
+            {
+                payment.RegisterPayment(transcationAmount, new List<IPaymentRules>()
+                {
+                    new GeneratePackingSlip(EDepratment.ROYALTY),
+                    new CommisionPayment()
+                });
+
+                paymentslist.Add(payment);
+            }
         }
 
         public void FinalizePayments()

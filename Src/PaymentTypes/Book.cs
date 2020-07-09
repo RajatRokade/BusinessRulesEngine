@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessRulesEngine.PaymentTypes
 {
-    /// <summary>
-    /// Class to hanlde Physical Product purchase type
-    /// </summary>
-    public class PhysicalProduct : IPayment
+    public class Book : IPayment
     {
         /// <summary>
         /// Inherited from Interfce
@@ -25,14 +22,14 @@ namespace BusinessRulesEngine.PaymentTypes
         /// <summary>
         /// Number of rules which needs to be applied for the payment post processing
         /// </summary>
-        private List<IPaymentRules> rules = null; 
+        private List<IPaymentRules> rules = null;
 
         /// <summary>
         /// Ctor
         /// </summary>
-        public PhysicalProduct()
+        public Book()
         {
-            PaymentType = "PhysicalProduct";
+            PaymentType = "Book";
         }
 
         /// <summary>
@@ -40,8 +37,8 @@ namespace BusinessRulesEngine.PaymentTypes
         /// </summary>
         public void RegisterPayment(int amount, List<IPaymentRules> rules)
         {
-            Console.WriteLine("Payment of {0} recieved for {1}",amount,PaymentType);
-            this.rules = rules; 
+            Console.WriteLine("Payment of {0} recieved for {1}", amount, PaymentType);
+            this.rules = rules;
         }
 
         /// <summary>

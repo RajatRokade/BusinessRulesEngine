@@ -47,6 +47,7 @@
     <Compile Include="Interfaces\IPaymentRules.cs" />
     <Compile Include="OrderActions\CommisionPayment.cs" />
     <Compile Include="OrderActions\GeneratePackingSlip.cs" />
+    <Compile Include="PaymentTypes\Book.cs" />
     <Compile Include="PaymentTypes\PhysicalProduct.cs" />
     <Compile Include="ProcessPayment.cs" />
     <Compile Include="Program.cs" />

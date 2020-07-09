@@ -14,7 +14,7 @@ namespace BusinessRulesEngine.Interfaces
         /// <summary>
         /// Type of the Payment
         /// </summary>
-        string PaymentType { get; set; }
+        string PaymentType { get;}
 
         /// <summary>
         /// Number of Rules Processed for a given payment
