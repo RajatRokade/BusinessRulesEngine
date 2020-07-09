@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IPayment.cs" />
     <Compile Include="Interfaces\IPaymentRules.cs" />
     <Compile Include="OrderActions\ActivateMembership.cs" />
+    <Compile Include="OrderActions\AddVideo.cs" />
     <Compile Include="OrderActions\CommisionPayment.cs" />
     <Compile Include="OrderActions\GeneratePackingSlip.cs" />
     <Compile Include="OrderActions\SendEmail.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="PaymentTypes\Membership.cs" />
     <Compile Include="PaymentTypes\Book.cs" />
     <Compile Include="PaymentTypes\PhysicalProduct.cs" />
+    <Compile Include="PaymentTypes\Video.cs" />
     <Compile Include="ProcessPayment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

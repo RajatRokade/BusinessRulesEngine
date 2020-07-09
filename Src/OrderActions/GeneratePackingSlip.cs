@@ -13,7 +13,8 @@ namespace BusinessRulesEngine.OrderActions
     {
         UNKNOWN = 0,
         SHIPPING = 1,
-        ROYALTY = 2
+        ROYALTY = 2,
+        VIDEO = 3
     };
 
     /// <summary>

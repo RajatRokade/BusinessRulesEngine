@@ -35,6 +35,27 @@ namespace BusinessRulesEngine
 
                 paymentslist.Add(payment);
             }
+            else if (payment.PaymentType == "Video")
+            {
+                var video = (Video)payment;
+                if(video.videoType == "Learning to ski")
+                {
+                    payment.RegisterPayment(transcationAmount, new List<IPaymentRules>()
+                    {
+                        new GeneratePackingSlip(EDepratment.VIDEO),
+                        new AddVideo("First Aid")
+                    });
+                }
+                else
+                {
+                    payment.RegisterPayment(transcationAmount, new List<IPaymentRules>()
+                    {
+                        new GeneratePackingSlip(EDepratment.VIDEO),
+                    });
+                }
+
+                paymentslist.Add(payment);
+            }
             else if (payment.PaymentType == "Membership")
             {
                 var membership = (Membership)payment;

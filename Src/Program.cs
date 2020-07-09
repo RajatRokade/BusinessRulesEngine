@@ -22,6 +22,10 @@ namespace BusinessRulesEngine
 
             payment.Process(300, new Membership(EMembershipType.UPGRADE));
 
+            payment.Process(40, new Video("Learning to ski"));
+
+            payment.Process(20, new Video());
+
             payment.FinalizePayments();
 
             Console.ReadLine();

@@ -1,4 +1,5 @@
 ﻿using System;
+using BusinessRulesEngine.OrderActions;
 using BusinessRulesEngine.PaymentTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -40,6 +41,22 @@ namespace BusinessRulesEngine.Tests
             payment.FinalizePayments();
             Assert.AreEqual(2, payment.paymentslist[0].NumberOfRulesProcessed);
             Assert.AreEqual(2, payment.paymentslist[1].NumberOfRulesProcessed);
+        }
+
+        [TestMethod]
+        public void Video_Rules_Check()
+        {
+            ProcessPayment payment = new ProcessPayment();
+
+            payment.Process(100, new Video("Learning to ski"));
+            Assert.AreEqual(0, payment.paymentslist[0].NumberOfRulesProcessed);
+            payment.FinalizePayments();
+            Assert.AreEqual(2, payment.paymentslist[0].NumberOfRulesProcessed);
+
+            payment.Process(100, new Video());
+            payment.FinalizePayments();
+            Assert.AreEqual(1, payment.paymentslist[1].NumberOfRulesProcessed);
+
         }
     }
 }
