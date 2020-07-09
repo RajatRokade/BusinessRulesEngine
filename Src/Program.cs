@@ -16,6 +16,12 @@ namespace BusinessRulesEngine
         {
             payment.Process(100,new PhysicalProduct());
 
+            payment.Process(50, new Book());
+
+            payment.Process(2000, new Membership(EMembershipType.NEW));
+
+            payment.Process(300, new Membership(EMembershipType.UPGRADE));
+
             payment.FinalizePayments();
 
             Console.ReadLine();

@@ -18,6 +18,7 @@ namespace BusinessRulesEngine.Tests
             Assert.AreEqual(2, payment.paymentslist[0].NumberOfRulesProcessed);
         }
 
+        [TestMethod]
         public void Book_Applied_Rules_Check()
         {
             ProcessPayment payment = new ProcessPayment();
@@ -26,6 +27,19 @@ namespace BusinessRulesEngine.Tests
             Assert.AreEqual(0, payment.paymentslist[0].NumberOfRulesProcessed);
             payment.FinalizePayments();
             Assert.AreEqual(2, payment.paymentslist[0].NumberOfRulesProcessed);
+        }
+
+        [TestMethod]
+        public void Membership_Applied_Rules_Check()
+        {
+            ProcessPayment payment = new ProcessPayment();
+
+            payment.Process(100, new Membership(EMembershipType.NEW));
+            payment.Process(100, new Membership(EMembershipType.UPGRADE));
+            Assert.AreEqual(0, payment.paymentslist[0].NumberOfRulesProcessed);
+            payment.FinalizePayments();
+            Assert.AreEqual(2, payment.paymentslist[0].NumberOfRulesProcessed);
+            Assert.AreEqual(2, payment.paymentslist[1].NumberOfRulesProcessed);
         }
     }
 }

@@ -30,3 +30,7 @@ reports/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+#Test Results
+packages/
+TestResults/

@@ -1,5 +1,6 @@
 ﻿using BusinessRulesEngine.Interfaces;
 using BusinessRulesEngine.OrderActions;
+using BusinessRulesEngine.PaymentTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,28 @@ namespace BusinessRulesEngine
                     new GeneratePackingSlip(EDepratment.ROYALTY),
                     new CommisionPayment()
                 });
+
+                paymentslist.Add(payment);
+            }
+            else if (payment.PaymentType == "Membership")
+            {
+                var membership = (Membership)payment;
+                if (membership.membershipAction == EMembershipType.NEW)
+                {
+                    payment.RegisterPayment(transcationAmount, new List<IPaymentRules>()
+                    {
+                        new ActivateMembership(),
+                        new SendEmail()
+                    }) ;
+                }
+                else if(membership.membershipAction == EMembershipType.UPGRADE)
+                {
+                    payment.RegisterPayment(transcationAmount, new List<IPaymentRules>()
+                    {
+                        new UpgradeMembership(),
+                        new SendEmail()
+                    });
+                }
 
                 paymentslist.Add(payment);
             }
